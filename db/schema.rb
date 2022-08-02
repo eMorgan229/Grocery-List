@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2022_08_01_204319) do
   end
 
   create_table "list_items", force: :cascade do |t|
-    t.string "list_id"
-    t.string "item_id"
+    t.integer "grocery_list_id"
+    t.integer "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

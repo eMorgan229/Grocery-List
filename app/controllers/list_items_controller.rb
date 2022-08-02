@@ -18,7 +18,7 @@ class ListItemsController < ApplicationController
     @list_item = ListItem.new(list_item_params)
 
     if @list_item.save
-      render json: @list_item, status: :created, location: @list_item
+      render json: @list_item, status: :created
     else
       render json: @list_item.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class ListItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_item_params
-      params.require(:list_item).permit(:list_id, :item_id)
+      params.permit(:list_id, :item_id)
     end
 end

@@ -17,8 +17,8 @@ class GroceryListsController < ApplicationController
   def create
     @grocery_list = GroceryList.new(grocery_list_params)
 
-    if @grocery_list.save
-      render json: @grocery_list, status: :created, location: @grocery_list
+    if @grocery_list.save!
+      render json: @grocery_list, status: :created
     else
       render json: @grocery_list.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class GroceryListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grocery_list_params
-      params.require(:grocery_list).permit(:list_name, :user_id)
+      params.permit(:list_name, :user_id)
     end
 end
