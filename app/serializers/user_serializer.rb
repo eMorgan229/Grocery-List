@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password
+  attributes :id, :username
 
-  has_many :grocery_lists
+  # has_many :grocery_lists
 end
