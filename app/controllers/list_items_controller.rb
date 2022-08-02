@@ -17,7 +17,7 @@ class ListItemsController < ApplicationController
   def create
     @list_item = ListItem.new(list_item_params)
 
-    if @list_item.save
+    if @list_item.save!
       render json: @list_item, status: :created
     else
       render json: @list_item.errors, status: :unprocessable_entity

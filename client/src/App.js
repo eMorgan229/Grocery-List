@@ -1,4 +1,5 @@
 import './App.css';
+import {useState, useEffect} from 'react'
 import {Routes, Route} from "react-router-dom"
 import Login from './components/Login';
 import GroceryList from './components/GroceryList';
@@ -8,13 +9,22 @@ import NavBar from './components/NavBar';
 
 
 function App() {
+  
+  const [lists, setLists] = useState([])
+
+  useEffect(()=>{
+    fetch('/grocery_lists') 
+    .then(r=>r.json())
+    .then(setLists)
+  }, [])
+
   return (
     <div>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<GroceryList/>}/>
+        <Route path="/" element={<GroceryList lists={lists}/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/view_grocery_lists" element={<ViewAllGroceryLists/>}/>
+        <Route path="/view_grocery_lists" element={<ViewAllGroceryLists lists={lists}/>}/>
 
       </Routes>
     </div>

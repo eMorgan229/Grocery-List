@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :list_items, only: [:index, :create, :destroy]
-  resources :items
+  resources :list_items, only: [:create, :destroy]
+  resources :items 
   resources :grocery_lists
 
   # LOGIN routes
