@@ -8,26 +8,30 @@ const ViewAllGroceryLists = ({lists, onAddList, user}) => {
     const [formData, setFormData] = useState({
         list_name: ""
     });
-
+const [selectedList, setSelectedList] = useState({
+    id:"",
+    list_name: "",
+    
+})
 const navigate = useNavigate()
 // const [groceryList, setGroceryListe] = useState({})
 
-function handleClick(e) {
-    console.log(e.target)
-
-    
-    //  navigate(`/grocery_lists/${id}`)
+function handleClick(id) {
+    console.log(id)
+    navigate(`/grocery_lists/${id}`)
 }
     const list = lists.map((i)=> {
-
+console.log(i.id)
         return (
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                     <Card.Title> {i.list_name}</Card.Title>
                 </Card.Body>
-                <Card.Link value={i.id} onClick={handleClick}>view items</Card.Link>
+                <Card.Link  onClick={()=> handleClick(i.id)}>view items</Card.Link>
             </Card>
+            
         ) 
+        
     })
 
     function handleChange(e) {

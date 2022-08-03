@@ -8,7 +8,7 @@ class GroceryListsController < ApplicationController
     render json: @grocery_lists
   end
 
-  # GET /grocery_lists/1
+  # GET /grocery_lists/id
   def show
     render json: @grocery_list
   end

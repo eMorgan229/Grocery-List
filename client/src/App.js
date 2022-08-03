@@ -43,7 +43,7 @@ function App() {
         <Route exact path="/login" element={<Login onLogin={handleLogin}/>}/>
         <Route exact path="/signup" element={<SignUp onLogin={handleLogin}/>}/>
         <Route exact path="/view_grocery_lists" element={<ViewAllGroceryLists user={user} lists={lists} onAddList={handleAddList}/>}/>
-        <Route exact path="/" element={<GroceryList user={user} lists={lists}/>}/>
+        <Route exact path="grocery_list/:id" element={<GroceryList user={user} lists={lists}/>}/>
 
       </Routes>
     </div>
