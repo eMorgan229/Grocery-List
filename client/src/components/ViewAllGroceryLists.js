@@ -4,6 +4,7 @@ const ViewAllGroceryLists = ({lists}) => {
 
     const list = lists.map((i)=> {
         return (
+           
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                 <Card.Title> {i.list_name}</Card.Title>

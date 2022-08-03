@@ -1,5 +1,3 @@
 class ListItemSerializer < ActiveModel::Serializer
-  attributes :list_id, :item_id
-
-  has_many :items
+  attributes :id, :list_id, :item_id
 end

@@ -2,10 +2,42 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import Item from './Item'
+import Item from './Item';
+import { useState, useEffect } from 'react';
 
 
-const GroceryList = ({handleSubmit}) => {
+const GroceryList = () => {
+
+    const [itemData, setItemData] = useState([])
+
+    useEffect(()=> {
+        fetch('/items')
+        .then(r=>r.json())
+        .then(setItemData)
+    }, [])
+
+     // const itemDelete = (i) => {
+    //     // if(itemData.find(id) !==i.id)
+    //     // setItemData(itemData) 
+    //     // console.log ('find')
+    // }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     const product = {
+    //         item_name,
+    //         price,
+    //         category
+    //     }
+
+    //     fetch('/list_items',{
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(product)
+    //     })
+    // }
 
     
     return (
@@ -37,10 +69,9 @@ const GroceryList = ({handleSubmit}) => {
                     </Form.Group>
         
                 </Row>
-                <Button onSubmit={handleSubmit} variant="primary" type="submit">Submit
+                <Button onSubmit={console.log("handleSubmit")} variant="primary" type="submit">Submit
                 </Button>
-
-                <Item handleSubmit={handleSubmit}/>
+                <Item itemData={itemData}/>
             </Form>
         </div>
     )

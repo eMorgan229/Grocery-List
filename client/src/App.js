@@ -11,6 +11,7 @@ import NavBar from './components/NavBar';
 function App() {
   
   const [lists, setLists] = useState([])
+  // console.log(lists)
 
   useEffect(()=>{
     fetch('/grocery_lists') 
