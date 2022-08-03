@@ -1,5 +1,5 @@
 class GroceryListSerializer < ActiveModel::Serializer
-  attributes :id, :list_name
+  attributes :list_name, :id
 
   has_many :items
 end

@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 
 
-const Login = ({onLogin}) => {
+const SignUp = ({onLogin}) => {
     const history = useNavigate()
     const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const Login = ({onLogin}) => {
     function handleLogin(e) {
         e.preventDefault();
         console.log(formData)
-        fetch('/login', {
+        fetch('/signup', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -42,21 +42,19 @@ const Login = ({onLogin}) => {
             password: ""
         });
         }
-
-
-return (
-    <div className="form">
-        <Form onSubmit={handleLogin}>
-            <h1>Login!</h1>
+    return(
+        <div className='form'>
+            <Form onSubmit={handleLogin}>
+                <h1>Signup!</h1>
             <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Enter Username</Form.Label>
+                <Form.Label>Enter New Username</Form.Label>
                 <Form.Control 
                     placeholder="Enter username" 
                     name="username" 
                     value={formData.username}
                     onChange={handleChange}
                 />
-            
+                
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -69,23 +67,21 @@ return (
                     onChange={handleChange}
                 />
                 <Form.Text className="text-muted">
-                   I hope you didn't forget your password.... there's no way to reset it...it's a feature
+                    Password must be a million characters long...and ONLY contain special characters
                 </Form.Text>
             </Form.Group>
-            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox"> */}
-                {/* <Form.Check type="checkbox" label="Check me out" /> */}
-            {/* </Form.Group> */}
+            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group> */}
             <Button variant="primary" type="submit">
                 Submit
             </Button>
             <br/>
             <br/>
-            <span>Need a Grocery List account? <a href="/signup">Signup</a> here!</span>
-
+            <span>Need a Grocery List account? <a href="/login">Login</a> here!</span>
         </Form>
 
-    </div>
-
-)
+        </div>
+    )
 }
-export default Login;
+export default SignUp;

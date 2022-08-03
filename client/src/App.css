@@ -9,3 +9,22 @@
   justify-content: center;
 }
 
+.grocery-list {
+  display: inline-block;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+
+.grocery-form {
+  /* height: 200px;
+    width: 200px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: right; */
+    display: inline-block;
+  padding: 1rem 1rem;
+  vertical-align: top;
+    
+}
+
+

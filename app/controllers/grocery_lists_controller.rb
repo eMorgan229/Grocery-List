@@ -3,12 +3,12 @@ class GroceryListsController < ApplicationController
 
   # GET /grocery_lists
   def index
-    @grocery_lists = GroceryList.all
+    @grocery_lists = GroceryList.where(user_id: session[:user_id])
 
     render json: @grocery_lists
   end
 
-  # GET /grocery_lists/1
+  # GET /grocery_lists/id
   def show
     render json: @grocery_list
   end
