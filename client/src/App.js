@@ -22,9 +22,9 @@ function App() {
     <div>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<GroceryList lists={lists}/>}/>
+        <Route path="/" element={<GroceryList />}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/view_grocery_lists" element={<ViewAllGroceryLists lists={lists}/>}/>
+        <Route path="/view_grocery_lists" element={<ViewAllGroceryLists lists={lists} />}/>
 
       </Routes>
     </div>

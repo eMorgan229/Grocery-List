@@ -5,12 +5,13 @@ import Row from 'react-bootstrap/Row';
 import Item from './Item'
 
 
-const GroceryList = () => {
+const GroceryList = ({handleSubmit}) => {
 
+    
     return (
         <div>
-            <h1>Grocery List {/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
-            <Form>
+            <h1>groceryList {/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
+            <Form >
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Enter New Grocery Item</Form.Label>
@@ -36,10 +37,10 @@ const GroceryList = () => {
                     </Form.Group>
         
                 </Row>
-                <Button variant="primary" type="submit">Submit
+                <Button onSubmit={handleSubmit} variant="primary" type="submit">Submit
                 </Button>
 
-                <Item />
+                <Item handleSubmit={handleSubmit}/>
             </Form>
         </div>
     )
