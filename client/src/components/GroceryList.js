@@ -16,13 +16,7 @@ const GroceryList = () => {
         .then(setItemData)
     }, [])
 
-     // const itemDelete = (i) => {
-    //     // if(itemData.find(id) !==i.id)
-    //     // setItemData(itemData) 
-    //     // console.log ('find')
-    // }
-
-    // const handleSubmit = (e) => {
+     // const handleSubmit = (e) => {
     //     e.preventDefault()
     //     const product = {
     //         item_name,
