@@ -1,14 +1,32 @@
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button'
 import Navbar from 'react-bootstrap/Navbar';
+import {useNavigate} from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({user, setUser}) => {
+  const history = useNavigate()
+
+  function handleLogout() {
+    fetch('/logout', {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        setUser({})
+        history('/login')
+      }
+    })
+  }
     return(
        
             <Navbar bg="light" expand="lg">
             <Container >
                 <Navbar.Brand href="#home">Grocery List</Navbar.Brand>
+              {user && user.username ? <div>
+              Welcome back {user.username}!
+              <Button onClick={handleLogout}>Log Out</Button>
+              </div> : ""}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
