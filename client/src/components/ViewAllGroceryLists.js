@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {useNavigate} from 'react-router';
 import {useState} from 'react'
 
 const ViewAllGroceryLists = ({lists, onAddList, user}) => {
@@ -8,14 +9,23 @@ const ViewAllGroceryLists = ({lists, onAddList, user}) => {
         list_name: ""
     });
 
+const navigate = useNavigate()
+// const [groceryList, setGroceryListe] = useState({})
 
+function handleClick(e) {
+    console.log(e.target)
+
+    
+    //  navigate(`/grocery_lists/${id}`)
+}
     const list = lists.map((i)=> {
+
         return (
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                <Card.Title> {i.list_name}</Card.Title>
+                    <Card.Title> {i.list_name}</Card.Title>
                 </Card.Body>
-                <Card.Link href='#'>view items{/*redirect to list of items*/}</Card.Link>
+                <Card.Link value={i.id} onClick={handleClick}>view items</Card.Link>
             </Card>
         ) 
     })
