@@ -10,7 +10,6 @@ import NavBar from './components/NavBar';
 
 
 function App() {
-  
   const [lists, setLists] = useState([])
   const [user, setUser] = useState({})
 
@@ -32,13 +31,18 @@ function App() {
   function handleLogin(user) {
     setUser(user)
   }
+
+  function handleAddList(addedList) {
+    setLists((list) => [...list, addedList]);
+  }
+
   return (
     <div>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
         <Route exact path="/login" element={<Login onLogin={handleLogin}/>}/>
         <Route exact path="/signup" element={<SignUp onLogin={handleLogin}/>}/>
-        <Route exact path="/view_grocery_lists" element={<ViewAllGroceryLists user={user} lists={lists}/>}/>
+        <Route exact path="/view_grocery_lists" element={<ViewAllGroceryLists user={user} lists={lists} onAddList={handleAddList}/>}/>
         <Route exact path="/" element={<GroceryList user={user} lists={lists}/>}/>
 
       </Routes>
