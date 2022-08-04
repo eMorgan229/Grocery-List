@@ -1,6 +1,6 @@
 import ItemCard from './ItemCard';
 
-const Item = ({ itemData}) => {
+const Item = ({ itemData }) => {
     // display item cards
     // console.log(itemData)
     const itemCard = itemData.map((i) => {

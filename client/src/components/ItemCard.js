@@ -4,19 +4,20 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function ItemCard({ itemData, itemId }) {
+function ItemCard({ itemData, itemId}) {
 const [check, setCheck] = useState(false)
-
-    console.log(itemData)
 
     function getData(){
         fetch(`/items`)
         .then(res => res.json())
+        // .then(data=>
+        //     console.log(data)
+        //     )
     }
 
     useEffect(() => {
         getData()
-    })
+    }, [itemData])
 
     const handleDelete = (e) => {
         e.preventDefault()

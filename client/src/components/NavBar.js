@@ -19,7 +19,6 @@ const NavBar = ({user, setUser}) => {
     })
   }
     return(
-       
             <Navbar bg="light" expand="lg">
             <Container >
                 <Navbar.Brand className="logo">
