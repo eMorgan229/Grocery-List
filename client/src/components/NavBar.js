@@ -22,7 +22,12 @@ const NavBar = ({user, setUser}) => {
        
             <Navbar bg="light" expand="lg">
             <Container >
-                <Navbar.Brand href="#home">Grocery List</Navbar.Brand>
+                <Navbar.Brand className="logo">
+                <img className="spinach-icon" alt="spinach icon" src='spinach.png'/>
+                <span className="title">
+                  Grocery List
+                </span>
+                </Navbar.Brand>
               {user && user.username ? <div>
               Welcome back {user.username}!
               <Button onClick={handleLogout}>Log Out</Button>
