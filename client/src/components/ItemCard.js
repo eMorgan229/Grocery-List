@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
 
 function ItemCard({ itemData, itemId }) {
-    console.log(itemData)
+    // console.log(itemData)
 
     function getData(){
         fetch(`/items`)

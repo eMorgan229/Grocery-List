@@ -13,16 +13,17 @@ const GroceryList = () => {
         items: []
     })
     const params = useParams()
-    console.log(params)
-     console.log(itemData)
+    // console.log(params)
+    //  console.log("list", itemData.items)
 
     useEffect(()=> {
         fetch(`/grocery_lists/${params.id}`)
         .then(r=>r.json())
-        .then(data => setItemData(data))
-        
+        .then(data => 
+            setItemData(data)
+            )
     }, [params.id])
-     // const handleSubmit = (e) => {
+     // const handleAddItem = (e) => {
     //     e.preventDefault()
     //     const product = {
     //         item_name,
@@ -38,8 +39,7 @@ const GroceryList = () => {
     //         body: JSON.stringify(product)
     //     })
     // }
-
-    
+    // const test =  <Item itemData={itemData.items}/>
     return (
         <div>
             <h1> {itemData.list_name}{/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
@@ -54,7 +54,7 @@ const GroceryList = () => {
                     <Form.Label>Choose Grocery Item</Form.Label>
                     <Form.Select defaultValue="Choose...">
                         <option>Choose...</option>
-                        <option>{/*ENTER FETCHED LIST OF GROCERY ITEMS HERE */}</option>
+                        <option>{/*ENTER FETCHED LIST OF GROCERY ITEMS HERE*/}</option>
                     </Form.Select>
                     </Form.Group>
         
@@ -69,10 +69,10 @@ const GroceryList = () => {
                     </Form.Group>
         
                 </Row>
-                <Button onSubmit={console.log("handleSubmit")} variant="primary" type="submit">Submit
+                <Button onSubmit={console.log("handleAddItem")} variant="primary" type="submit">Submit
                 </Button>
-                <Item itemData={itemData.items}/>
             </Form>
+            <Item itemData={itemData.items}/>
         </div>
     )
 }

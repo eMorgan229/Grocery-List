@@ -20,24 +20,21 @@ function handleClick(id) {
     navigate(`/grocery_lists/${id}`)
 }
     const list = lists.map((i)=> {
-console.log(i.id)
-        return (
-           
+// console.log(i.id)
+        return (  
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                    <Card.Title> {i.list_name}</Card.Title>
+                    <Card.Title key={i.id}> {i.list_name}</Card.Title>
                 </Card.Body>
                 <Card.Link  onClick={()=> handleClick(i.id)}>view items</Card.Link>
             </Card>
-            
-        ) 
-        
+        )
     })
 
     function handleChange(e) {
         const {name, value} = e.target
-        console.log(name, value)
-        console.log(user.id)
+        // console.log(name, value)
+        // console.log(user.id)
         setFormData((formData) => ({...formData,
             [name]: value,
             user_id: user.id
@@ -62,7 +59,7 @@ console.log(i.id)
         list_name: ""
       })
   }
-  console.log(user.id)
+//   console.log(user.id)
  
     return(
         <div>
