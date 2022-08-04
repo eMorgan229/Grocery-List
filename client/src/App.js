@@ -6,6 +6,7 @@ import SignUp from './components/SignUp';
 import GroceryList from './components/GroceryList';
 import ViewAllGroceryLists from './components/ViewAllGroceryLists';
 import NavBar from './components/NavBar';
+import {Helmet} from "react-helmet";
 //bootstrap below:
 
 
@@ -37,7 +38,14 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="body">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Grocery List</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+        <meta name="description" content="Grocery List Organizer Application" />
+      </Helmet>
+
       <NavBar user={user} setUser={setUser}/>
       <Routes>
         <Route exact path="/login" element={<Login onLogin={handleLogin}/>}/>

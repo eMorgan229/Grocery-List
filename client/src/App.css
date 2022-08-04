@@ -27,4 +27,27 @@
     
 }
 
+/* .body{
+    background-image: url("https://cdn.pixabay.com/photo/2015/12/19/02/12/texture-1099399_960_720.jpg");
+    background-color: #cccccc;
+       
+} */
+
+.logo {
+  font-family: europa-boldregular, sans-serif;
+    font-weight: 700;
+}
+
+.spinach-icon {
+  height: 55px;
+  width: auto;
+  margin-left: 5px;
+}
+
+.title {
+  font-family: 'Zeyada';
+  font-size: 50px;
+}
+
+
 
