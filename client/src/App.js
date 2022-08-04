@@ -9,7 +9,6 @@ import NavBar from './components/NavBar';
 import {Helmet} from "react-helmet";
 //bootstrap below:
 
-
 function App() {
   const [lists, setLists] = useState([])
   const [user, setUser] = useState({})
@@ -26,7 +25,9 @@ function App() {
   useEffect(()=>{
     fetch('/grocery_lists') 
     .then(r=>r.json())
-    .then(setLists)
+    .then(data => 
+      setLists(data)
+      )
   }, [])
 
   function handleLogin(user) {
