@@ -27,7 +27,9 @@ function App() {
   useEffect(()=>{
     fetch('/grocery_lists') 
     .then(r=>r.json())
-    .then(setLists)
+    .then(data => 
+      setLists(data)
+      )
   }, [])
 
   function handleLogin(user) {
