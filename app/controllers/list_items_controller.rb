@@ -46,6 +46,6 @@ class ListItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_item_params
-      params.permit(:list_id, :item_id)
+      params.permit(:grocery_list_id, :item_id)
     end
 end

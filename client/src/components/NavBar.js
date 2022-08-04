@@ -36,7 +36,7 @@ const NavBar = ({user, setUser}) => {
                 <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
             <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/">Grocery List</Nav.Link>
+            {/* <Nav.Link href="/grocery_lists/:id">Grocery List</Nav.Link> */}
             <Nav.Link href="/view_grocery_lists">View all Grocery Lists</Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -4,18 +4,24 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Item from './Item';
 import { useState, useEffect } from 'react';
-
+import {useParams} from 'react-router-dom';
 
 const GroceryList = () => {
 
-    const [itemData, setItemData] = useState([])
+    const [itemData, setItemData] = useState({
+        list_name: "",
+        items: []
+    })
+    const params = useParams()
+    console.log(params)
+     console.log(itemData)
 
     useEffect(()=> {
-        fetch('/items')
+        fetch(`/grocery_lists/${params.id}`)
         .then(r=>r.json())
-        .then(setItemData)
-    }, [])
-
+        .then(data => setItemData(data))
+        
+    }, [params.id])
      // const handleSubmit = (e) => {
     //     e.preventDefault()
     //     const product = {
@@ -36,12 +42,12 @@ const GroceryList = () => {
     
     return (
         <div>
-            <h1>groceryList {/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
+            <h1> {itemData.list_name}{/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
             <Form >
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Enter New Grocery Item</Form.Label>
-                    <Form.Control type="email" placeholder="New Grocery Item" />
+                    <Form.Control type="grocery-item" placeholder="New Grocery Item" />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridState">
@@ -65,7 +71,7 @@ const GroceryList = () => {
                 </Row>
                 <Button onSubmit={console.log("handleSubmit")} variant="primary" type="submit">Submit
                 </Button>
-                <Item itemData={itemData}/>
+                <Item itemData={itemData.items}/>
             </Form>
         </div>
     )

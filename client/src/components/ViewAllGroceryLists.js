@@ -17,7 +17,6 @@ const navigate = useNavigate()
 // const [groceryList, setGroceryListe] = useState({})
 
 function handleClick(id) {
-    console.log(id)
     navigate(`/grocery_lists/${id}`)
 }
     const list = lists.map((i)=> {
