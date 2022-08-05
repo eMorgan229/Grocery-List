@@ -3,7 +3,6 @@
 }
 
 .form {
-  height: 200px;
   display: flex;
   margin-top: 50px;
   justify-content: center;
@@ -16,14 +15,21 @@
 }
 
 .grocery-form {
-  /* height: 200px;
+  height: 200px;
     width: 200px;
     display: flex;
     margin-top: 20px;
-    justify-content: right; */
-    display: inline-block;
-  padding: 1rem 1rem;
-  vertical-align: top;
+    justify-content: right; 
+    /* display: inline-block; */
+  /* padding: 1rem 1rem; */
+  /* vertical-align: top;
+
+  position: fixed;
+    top: 0;
+    left: -20;
+    /* z-index: 999; */
+    width: 25%;
+    height: 23px;
     
 }
 
@@ -78,6 +84,7 @@
   background-color: #6DB673 !important;
 }
 
+
 .color-nav {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_jw8c7B_VOQnnOXCRHhKdFehzYL1-criNfw&usqp=CAU");
 }
@@ -96,4 +103,55 @@
 .me-auto {
   background-color: rgba(255,255,255,0.5) !important;
   text-align: center;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.login {
+  font-family: 'Zeyada';
+  font-size: 50px;
+  font-weight: bold !important;
+
+}
+
+.form-text {
+  font-weight: bold !important;
+  color: black !important;
+  font-size: 15px !important;
+}
+
+.grocery-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grocery-list-card-name {
+  font-family: 'Zeyada';
+  font-weight: bold !important;
+  color: black !important;
+  font-size: 35px !important;
+}
+
+.link-view-items {
+  font-style: italic;
+  color: darkgreen;
+}
+
+.grocery-list-card {
+  width: 18rem;
+  background-color: #F3E779 !important;
+  box-shadow: 5px 10px 8px #888888;
+  margin-bottom: 10px;
 }

@@ -23,11 +23,11 @@ function handleClick(id) {
 console.log(i.id)
         return (
            
-            <Card style={{ width: '18rem' }}>
+            <Card className="grocery-list-card" class="shadow p-3 mb-5 bg-white rounded">
                 <Card.Body>
-                    <Card.Title> {i.list_name}</Card.Title>
+                    <Card.Title className="grocery-list-card-name"> {i.list_name}</Card.Title>
                 </Card.Body>
-                <Card.Link  onClick={()=> handleClick(i.id)}>view items</Card.Link>
+                <Card.Link className="link-view-items" onClick={()=> handleClick(i.id)}>click to view items</Card.Link>
             </Card>
             
         ) 
@@ -66,26 +66,32 @@ console.log(i.id)
  
     return(
         <div>
-            <h1>View All Grocery Lists</h1>
-            
+            <video autoplay muted loop id="background-video">
+                <source src="vegtables.mp4" type="video/mp4"/>
+            </video>
+
+            <h1 className="login">View All Grocery Lists:</h1>
+            <div className="grocery-list-container">
             <div className="grocery-list">
             {list}
             </div>
             <div className="grocery-form">
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Create a New Grocery List</Form.Label>
+                <Form.Label className="form-text">Create a New Grocery List</Form.Label>
                 <Form.Control 
                     placeholder="Enter Grocery List Name" 
                     name="list_name" 
                     onChange={handleChange}
                     value={formData.list_name} 
                 />
-                <Button variant="primary" type="submit">
+                <Button className="button" variant="primary" type="submit">
                 Submit
                 </Button>
                 </Form.Group>
             </Form>
+            </div>
+            
             </div>
 
             

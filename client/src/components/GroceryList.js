@@ -43,16 +43,20 @@ const GroceryList = () => {
     
     return (
         <div>
-            <h1> {itemData.list_name}{/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
+            <video autoplay muted loop id="background-video">
+                <source src="vegtables.mp4" type="video/mp4"/>
+            </video>
+
+            <h1 className="login"> {itemData.list_name}{/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
             <Form >
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>Enter New Grocery Item</Form.Label>
+                    <Form.Label className="form-text">Enter New Grocery Item</Form.Label>
                     <Form.Control type="grocery-item" placeholder="New Grocery Item" />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Choose Grocery Item</Form.Label>
+                    <Form.Label className="form-text">Choose Grocery Item</Form.Label>
                     <Form.Select defaultValue="Choose...">
                         <option>Choose...</option>
                         <option>{/*ENTER FETCHED LIST OF GROCERY ITEMS HERE */}</option>
@@ -62,7 +66,7 @@ const GroceryList = () => {
                 </Row>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>Select A Food Category</Form.Label>
+                    <Form.Label className="form-text">Select A Food Category</Form.Label>
                     <Form.Select defaultValue="Choose...">
                         <option>Choose...</option>
                         <option>{/*HARD CODE CATEGORIES */}</option>
@@ -70,7 +74,7 @@ const GroceryList = () => {
                     </Form.Group>
         
                 </Row>
-                <Button onSubmit={console.log("handleSubmit")} variant="primary" type="submit">Submit
+                <Button className="button" onSubmit={console.log("handleSubmit")} variant="primary" type="submit">Submit
                 </Button>
                 <Item itemData={itemData.items}/>
             </Form>

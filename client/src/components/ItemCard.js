@@ -52,7 +52,7 @@ const params = useParams()
         <div >
             <Card className="item-card" style={{ width: '18rem' }}>
                 <ListGroup.Item variant="flush">
-                    <p><strong>{itemData.item_name}</strong></p>
+                    <p><strong className="grocery-list-card-name">{itemData.item_name}</strong></p>
                     <span>${itemData.price}</span><br />
                     <span>ethnic category: {itemData.category}</span>
                 </ListGroup.Item>
@@ -61,7 +61,7 @@ const params = useParams()
                 id={itemData.id}
                 />
                 </Form.Group>
-                <Button variant="primary" type="delete" onClick={handleDelete}>
+                <Button className="button" variant="primary" type="delete" onClick={handleDelete}>
                 Delete
                 </Button>
             </Card>

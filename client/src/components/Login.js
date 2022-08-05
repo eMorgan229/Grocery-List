@@ -46,10 +46,14 @@ const Login = ({onLogin}) => {
 
 return (
     <div className="form">
+        <video autoplay muted loop id="background-video">
+            <source src="kitchen.mp4" type="video/mp4"/>
+        </video>
+
         <Form onSubmit={handleLogin}>
-            <h1>Login!</h1>
+            <h1 className="login">Login!</h1>
             <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Enter Username</Form.Label>
+                <Form.Label className="form-text">Enter Username</Form.Label>
                 <Form.Control 
                     placeholder="Enter username" 
                     name="username" 
@@ -60,7 +64,7 @@ return (
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+                <Form.Label className="form-text">Password</Form.Label>
                 <Form.Control 
                     type="password" 
                     placeholder="Enter Password"
@@ -68,19 +72,19 @@ return (
                     value={formData.password} 
                     onChange={handleChange}
                 />
-                <Form.Text className="text-muted">
+                <Form.Text className="form-text">
                    I hope you didn't forget your password.... there's no way to reset it...it's a feature
                 </Form.Text>
             </Form.Group>
             {/* <Form.Group className="mb-3" controlId="formBasicCheckbox"> */}
                 {/* <Form.Check type="checkbox" label="Check me out" /> */}
             {/* </Form.Group> */}
-            <Button variant="primary" type="submit">
+            <Button className="button" variant="primary" type="submit">
                 Submit
             </Button>
             <br/>
             <br/>
-            <span>Need a Grocery List account? <a href="/signup">Signup</a> here!</span>
+            <span className='form-text'>Need a Grocery List account? <a href="/signup">Signup</a> here!</span>
 
         </Form>
 
