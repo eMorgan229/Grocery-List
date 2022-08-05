@@ -7,19 +7,19 @@ Item.destroy_all
 ListItem.destroy_all
 
 puts "creating users..."
-5.times do 
+ 
     user = User.create!(
-        username: Faker::Internet.username(specifier: 5..8),
-        password: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true, special_characters: true)
+        username: "em",
+        password: "12345678"
     )
-end
+
 
 puts "creating grocery_list..."
 user_ids = User.ids
 5.times do 
     list = GroceryList.create!(
         list_name: Faker::Food.dish, 
-        user_id: user_ids.sample)
+        user_id: user.id)
 end
     
 puts "creating items..."

@@ -22,22 +22,30 @@ const GroceryList = () => {
         .then(data => setItemData(data))
         
     }, [params.id])
-     // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     const product = {
-    //         item_name,
-    //         price,
-    //         category
-    //     }
+     
+    const [item_name, setItemName] = useState('')
+    const [price, setPrice] = useState('')
+    const [category, setCategory] = useState('')
 
-    //     fetch('/list_items',{
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(product)
-    //     })
-    // }
+    const handleAddItem = (e) => {
+
+        console.log(params)
+        e.preventDefault()
+        fetch('/list_items', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                item_id: 29,
+                grocery_list_id: 21
+
+            })
+            
+        })
+        .then(r=>r.json())
+        .then(data => console.log(data))
+    }
 
     
     
@@ -48,16 +56,17 @@ const GroceryList = () => {
             </video>
 
             <h1 className="login"> {itemData.list_name}{/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>
-            <Form >
+            <Form onSubmit={handleAddItem}>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label className="form-text">Enter New Grocery Item</Form.Label>
-                    <Form.Control type="grocery-item" placeholder="New Grocery Item" />
+                    <Form.Control onChange={(e) => setItemName(e.target.value)} type="grocery-item" placeholder="New Grocery Item" />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridState">
                     <Form.Label className="form-text">Choose Grocery Item</Form.Label>
-                    <Form.Select defaultValue="Choose...">
+                    <Form.Select onChange={(e) => setPrice(e.target.value)}
+                    defaultValue="Choose...">
                         <option>Choose...</option>
                         <option>{/*ENTER FETCHED LIST OF GROCERY ITEMS HERE */}</option>
                     </Form.Select>
@@ -67,14 +76,15 @@ const GroceryList = () => {
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridState">
                     <Form.Label className="form-text">Select A Food Category</Form.Label>
-                    <Form.Select defaultValue="Choose...">
+                    <Form.Select onChange={(e) => setCategory(e.target.value)}
+                    defaultValue="Choose...">
                         <option>Choose...</option>
                         <option>{/*HARD CODE CATEGORIES */}</option>
                     </Form.Select>
                     </Form.Group>
         
                 </Row>
-                <Button className="button" onSubmit={console.log("handleSubmit")} variant="primary" type="submit">Submit
+                <Button className="button" variant="primary" type="submit">Submit
                 </Button>
                 <Item itemData={itemData.items}/>
             </Form>

@@ -23,12 +23,21 @@ const params = useParams()
 
     const handleDelete = (e) => {
         e.preventDefault()
-        fetch(`/items/${params.id}`, {
-            method: 'DELETE'
+        fetch(`/remove`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                item_id: itemData.id,
+                grocery_list_id: params.id
+
         })
-            .then(r => r.json())
-            .then(getData())
+            // .then(r => r.json())
+            // .then(getData())
+        })
     }
+    
 
     function handleCheck(e) {
         console.log(e.target.id)
@@ -47,7 +56,7 @@ const params = useParams()
     }
     console.log(check)
 
-
+    
     return (
         <div >
             <Card className="item-card" style={{ width: '18rem' }}>

@@ -15,12 +15,12 @@ class ListItemsController < ApplicationController
 
   # POST /list_items
   def create
-    @list_item = ListItem.new(list_item_params)
+    list_item = ListItem.new(list_item_params)
 
-    if @list_item.save!
-      render json: @list_item, status: :created
+    if list_item.save!
+      render json: list_item, status: :created
     else
-      render json: @list_item.errors, status: :unprocessable_entity
+      render json: list_item.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,11 @@ class ListItemsController < ApplicationController
 
   # DELETE /list_items/1
   def destroy
-    @list_item.destroy
+    ListItem.where(params[:item_id, :grocery_list_id]).destroy_all
+  end
+
+  def remove
+    ListItem.where(item_id:params[:item_id] , grocery_list_id:params[:grocery_list_id]).destroy_all
   end
 
   private
