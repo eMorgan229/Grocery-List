@@ -3,6 +3,7 @@ class CreateListItems < ActiveRecord::Migration[6.1]
     create_table :list_items do |t|
       t.integer :grocery_list_id
       t.integer :item_id
+      # t.string :item_name
 
       t.timestamps
     end
