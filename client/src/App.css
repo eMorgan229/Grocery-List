@@ -49,5 +49,51 @@
   font-size: 50px;
 }
 
+.logout-button {
+  font-family: 'Zeyada';
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
 
+.welcome {
+  display: inline;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 25px;
+  width: 150px;
+}
+
+.welcome-text {
+  font-family: 'Zeyada';
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: #6DB673 !important;
+}
+
+.color-nav {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_jw8c7B_VOQnnOXCRHhKdFehzYL1-criNfw&usqp=CAU");
+}
+
+.nav-toggle {
+  background-color: rgba(255,255,255,0.5) !important;
+}
+
+.nav-link {
+  /* font-family: 'Zeyada'; */
+  font-size: 20px;
+  font-weight: bold !important;
+  color: black !important;
+}
+
+.me-auto {
+  background-color: rgba(255,255,255,0.5) !important;
+  text-align: center;
+}

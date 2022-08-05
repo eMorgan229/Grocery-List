@@ -20,7 +20,7 @@ const NavBar = ({user, setUser}) => {
   }
     return(
        
-            <Navbar bg="light" expand="lg">
+            <Navbar className="color-nav" expand="lg">
             <Container >
                 <Navbar.Brand className="logo">
                 <img className="spinach-icon" alt="spinach icon" src='spinach.png'/>
@@ -28,14 +28,18 @@ const NavBar = ({user, setUser}) => {
                   Grocery List
                 </span>
                 </Navbar.Brand>
-              {user && user.username ? <div>
-              Welcome back {user.username}!
-              <Button onClick={handleLogout}>Log Out</Button>
+              {user && user.username ? <div className="welcome">
+                <div className="welcome-text">
+                Welcome back , {user.username}!
+                </div>
+                <div className="logout-button">              
+                <Button className="button" onClick={handleLogout}>Log Out</Button>
+                </div>
               </div> : ""}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle className="nav-toggle" aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link className="nav-link" href="/login">Login</Nav.Link>
             {/* <Nav.Link href="/grocery_lists/:id">Grocery List</Nav.Link> */}
             <Nav.Link href="/view_grocery_lists">View all Grocery Lists</Nav.Link>
           </Nav>
