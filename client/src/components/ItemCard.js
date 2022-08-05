@@ -40,7 +40,7 @@ const params = useParams()
     
 
     function handleCheck(e) {
-        console.log(e.target.id)
+        console.log(e)
         console.log(check)
         setCheck((check) => !check)
         console.log(check)
@@ -50,7 +50,8 @@ const params = useParams()
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                checked: check
+                checked: check,
+                item_name: e.target.item_name
             })
         })
     }

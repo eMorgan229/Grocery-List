@@ -44,7 +44,7 @@ const GroceryList = () => {
             
         })
         .then(r=>r.json())
-        .then(data => console.log(data))
+        .then(data => console.log( data, "i was posted!"))
     }
 
     

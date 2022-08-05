@@ -26,10 +26,13 @@ class ListItemsController < ApplicationController
 
   # PATCH/PUT /list_items/1
   def update
-    if @list_item.update(list_item_params)
-      render json: @list_item
+    list_item_data = Item.find_by(name:params[:item_name])
+
+
+    if list_item_data.update(params[:checked])
+      render json: list_item_data
     else
-      render json: @list_item.errors, status: :unprocessable_entity
+      render json: list_item_data.errors, status: :unprocessable_entity
     end
   end
 
@@ -50,6 +53,6 @@ class ListItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_item_params
-      params.permit(:grocery_list_id, :item_id)
+      params.permit(:grocery_list_id, :item_id, :checked)
     end
 end

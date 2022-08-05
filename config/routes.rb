@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :list_items, only: [:index, :show, :create, :destroy]
+  resources :list_items
   resources :items 
   resources :grocery_lists
 
