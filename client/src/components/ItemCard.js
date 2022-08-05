@@ -3,9 +3,12 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import {useParams} from 'react-router-dom';
 
 function ItemCard({ itemData, itemId }) {
 const [check, setCheck] = useState(false)
+const params = useParams()
+    console.log(params)
 
     console.log(itemData)
 
@@ -20,17 +23,30 @@ const [check, setCheck] = useState(false)
 
     const handleDelete = (e) => {
         e.preventDefault()
-        fetch(`/items/${itemId}`, {
+        fetch(`/items/${params.id}`, {
             method: 'DELETE'
         })
             .then(r => r.json())
             .then(getData())
     }
 
-    function handleCheck() {
-        setCheck(!check)
+    function handleCheck(e) {
+        console.log(e.target.id)
+        console.log(check)
+        setCheck((check) => !check)
+        console.log(check)
+        fetch(`/list_items/${e.target.id}`, {
+            method: "PATCH",
+            header: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                checked: check
+            })
+        })
     }
     console.log(check)
+
 
     return (
         <div >
@@ -41,7 +57,9 @@ const [check, setCheck] = useState(false)
                     <span>ethnic category: {itemData.category}</span>
                 </ListGroup.Item>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check Item off List!" onClick={handleCheck}/>
+                <Form.Check type="checkbox" label="Check Item off List!" onClick={handleCheck}
+                id={itemData.id}
+                />
                 </Form.Group>
                 <Button variant="primary" type="delete" onClick={handleDelete}>
                 Delete

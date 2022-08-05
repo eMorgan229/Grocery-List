@@ -40,6 +40,7 @@ const GroceryList = () => {
     // }
 
     
+    
     return (
         <div>
             <h1> {itemData.list_name}{/*RETURN THE NAME OF THE PARTICULAR LIST */}</h1>

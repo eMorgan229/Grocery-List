@@ -5,12 +5,12 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    render json: @items
+    render json: @items.to_json(include: :checked)
   end
 
   # GET /items/1
   def show
-    render json: @item
+    render json: @item.to_json(include: :checked)
   end
 
   # POST /items
@@ -46,6 +46,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.permit(:item_name, :price, :category)
+      params.permit(:item_name, :price, :category, :checked)
     end
 end
